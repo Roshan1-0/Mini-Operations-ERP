@@ -34,7 +34,7 @@ Create a `.env` file inside `Backend/`:
 ```env
 PORT=5000
 NODE_ENV=development
-DATABASE_URL=postgresql://neondb_owner:npg_O9V7ExCkcwdZ@ep-damp-recipe-azh2miet-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+DATABASE_URL=postgresql://neondb_owner:...............-damp-recipe-azh2miet-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
 JWT_SECRET=super_secret_jwt_key_that_is_at_least_32_characters_long
 CLIENT_URL=http://localhost:5173
 ```
