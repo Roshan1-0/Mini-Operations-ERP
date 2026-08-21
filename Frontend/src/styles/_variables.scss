@@ -1,0 +1,95 @@
+// Color System - Corporate Modern Minimalism
+$primary: #2563eb;
+$primary-dark: #1d4ed8;
+$primary-light: #dbeafe;
+$primary-container: #eff6ff;
+
+$surface: #fafbff;
+$surface-dim: #f1f5f9;
+$surface-card: #ffffff;
+$surface-hover: #f8fafc;
+
+$on-surface: #0f172a;
+$on-surface-secondary: #475569;
+$on-surface-muted: #94a3b8;
+
+$border: #e2e8f0;
+$border-focus: $primary;
+
+$success: #10b981;
+$success-bg: #ecfdf5;
+$success-border: #a7f3d0;
+
+$warning: #f59e0b;
+$warning-bg: #fffbeb;
+$warning-border: #fde68a;
+
+$danger: #ef4444;
+$danger-bg: #fef2f2;
+$danger-border: #fecaca;
+
+$info: #3b82f6;
+$info-bg: #eff6ff;
+
+$gray: #64748b;
+$gray-bg: #f1f5f9;
+
+// Status badge colors
+$status-assigned: $primary;
+$status-in-progress: $warning;
+$status-completed: $success;
+$status-requested: $gray;
+$status-dispatched: $primary;
+$status-received: $success;
+$status-pending: $gray;
+$status-reserved: $primary;
+$status-cancelled: $danger;
+
+// Typography
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-size-xs: 11px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 30px;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+
+// Border Radius
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+$radius-xl: 12px;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+
+// Layout
+$sidebar-width: 220px;
+$topbar-height: 60px;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

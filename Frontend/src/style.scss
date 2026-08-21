@@ -1,0 +1,41 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $on-surface;
+  background: $surface;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: $surface-dim; }
+::-webkit-scrollbar-thumb { background: $border; border-radius: $radius-full; }
+::-webkit-scrollbar-thumb:hover { background: $on-surface-muted; }
