@@ -1,0 +1,198 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.page { padding: $space-8; }
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  &:has(.detailPanel) {
+    grid-template-columns: 1fr 340px;
+    gap: $space-6;
+  }
+}
+
+.listPanel { min-width: 0; }
+
+.tableCard {
+  background: white;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.tableWrapper { overflow-x: auto; }
+
+.table {
+  th {
+    background: $surface-dim;
+    padding: $space-3 $space-4;
+    text-align: left;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: $on-surface-secondary;
+    border-bottom: 1px solid $border;
+  }
+  td {
+    padding: $space-3 $space-4;
+    font-size: $font-size-md;
+    border-bottom: 1px solid $border;
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+}
+
+.row { cursor: pointer; &:hover td { background: $surface-hover; } }
+.selectedRow td { background: $primary-container !important; }
+.woNumber { font-weight: $font-weight-semibold; color: $primary; }
+
+.detailPanel {
+  background: white;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  padding: $space-5;
+  align-self: flex-start;
+  position: sticky;
+  top: $space-6;
+}
+
+.detailHeader {
+  @include flex(row, space-between, flex-start);
+  margin-bottom: $space-5;
+}
+
+.detailTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $on-surface;
+  margin-bottom: $space-2;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $on-surface-muted;
+  padding: $space-1;
+  border-radius: $radius-sm;
+  &:hover { background: $surface-dim; }
+}
+
+.detailSection {
+  margin-bottom: $space-5;
+  padding-bottom: $space-5;
+  border-bottom: 1px solid $border;
+  &:last-of-type { border-bottom: none; }
+}
+
+.sectionTitle {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: $on-surface-muted;
+  margin-bottom: $space-3;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: $font-size-md;
+  }
+}
+
+.infoLabel {
+  font-size: $font-size-xs;
+  color: $on-surface-muted;
+}
+
+.checking { font-size: $font-size-sm; color: $on-surface-muted; }
+
+.stockGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-2;
+  margin-bottom: $space-4;
+}
+
+.stockItem {
+  background: $surface-dim;
+  border-radius: $radius-md;
+  padding: $space-3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.stockValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $on-surface;
+  &.available { color: $primary; }
+  &.shortage { color: $danger; }
+  &.ok { color: $success; }
+}
+
+.stockLabel {
+  font-size: $font-size-xs;
+  color: $on-surface-muted;
+}
+
+.shortageAlert {
+  background: $danger-bg;
+  border: 1px solid $danger-border;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  font-size: $font-size-sm;
+  color: #991b1b;
+
+  strong { display: block; margin-bottom: $space-1; }
+  p { color: $danger; }
+}
+
+.detailActions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-top: $space-4;
+}
+
+.primaryBtn {
+  @include button-base;
+  background: $primary;
+  color: white;
+  width: 100%;
+  height: 40px;
+  &:hover { background: $primary-dark; }
+}
+
+.cancelBtn {
+  @include button-base;
+  background: white;
+  border: 1px solid $border;
+  color: $on-surface-secondary;
+  padding: $space-2 $space-4;
+  &:hover { background: $surface-dim; }
+}
+
+.form { display: flex; flex-direction: column; gap: $space-4; }
+
+.field {
+  display: flex; flex-direction: column; gap: $space-2;
+  label { font-size: $font-size-sm; font-weight: $font-weight-medium; color: $on-surface; }
+}
+
+.formInput, .formSelect { @include input-base; height: 40px; }
+
+.formError {
+  background: $danger-bg; border: 1px solid $danger-border; color: $danger;
+  border-radius: $radius-sm; padding: $space-3 $space-4; font-size: $font-size-md;
+}
