@@ -1,0 +1,65 @@
+@use '../../styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-4;
+}
+
+.modal {
+  background: white;
+  border-radius: $radius-lg;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-5 $space-6;
+  border-bottom: 1px solid $border;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $on-surface;
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: $font-size-base;
+  color: $on-surface-muted;
+  cursor: pointer;
+  padding: $space-1;
+  line-height: 1;
+  border-radius: $radius-sm;
+  &:hover { background: $surface-dim; color: $on-surface; }
+}
+
+.body {
+  padding: $space-6;
+  flex: 1;
+}
+
+.footer {
+  padding: $space-4 $space-6;
+  border-top: 1px solid $border;
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+  flex-shrink: 0;
+}

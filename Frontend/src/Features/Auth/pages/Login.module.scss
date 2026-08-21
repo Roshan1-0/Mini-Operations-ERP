@@ -1,0 +1,213 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.brand {
+  flex: 1;
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #2563eb 100%);
+  padding: $space-12;
+  @include flex(column, center, flex-start);
+
+  @include respond-to(md) {
+    display: none;
+  }
+}
+
+.brandContent {
+  max-width: 460px;
+}
+
+.logo {
+  @include flex(row, flex-start, center, $space-3);
+  color: white;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $space-8;
+}
+
+.tagline {
+  font-size: 34px;
+  font-weight: $font-weight-bold;
+  color: white;
+  line-height: 1.25;
+  margin-bottom: $space-4;
+}
+
+.subtagline {
+  font-size: $font-size-base;
+  color: rgba(white, 0.85);
+  line-height: 1.6;
+  margin-bottom: $space-8;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.feature {
+  @include flex(row, flex-start, center, $space-3);
+  color: rgba(white, 0.95);
+  font-size: $font-size-md;
+
+  .featureIcon {
+    font-size: $font-size-lg;
+  }
+}
+
+.formPanel {
+  width: 520px;
+  min-height: 100vh;
+  background: white;
+  @include flex(column, center, center);
+  padding: $space-8;
+  overflow-y: auto;
+
+  @include respond-to(md) {
+    width: 100%;
+    padding: $space-6;
+  }
+}
+
+.formCard {
+  width: 100%;
+  max-width: 420px;
+}
+
+.formTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $on-surface;
+  margin-bottom: $space-2;
+}
+
+.formSubtitle {
+  color: $on-surface-secondary;
+  font-size: $font-size-md;
+  margin-bottom: $space-6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $on-surface;
+}
+
+.input {
+  @include input-base;
+  height: 42px;
+}
+
+.passwordWrapper {
+  position: relative;
+
+  .input { padding-right: 44px; }
+}
+
+.togglePassword {
+  position: absolute;
+  right: $space-3;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: $font-size-base;
+}
+
+.error {
+  background: $danger-bg;
+  border: 1px solid $danger-border;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  color: $danger;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.submitBtn {
+  @include button-base;
+  background: $primary;
+  color: white;
+  height: 44px;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  width: 100%;
+  margin-top: $space-2;
+
+  &:hover:not(:disabled) { background: $primary-dark; }
+}
+
+.demoCredentials {
+  margin-top: $space-6;
+  padding-top: $space-5;
+  border-top: 1px solid $border;
+}
+
+.demoTitle {
+  font-size: $font-size-xs;
+  color: $on-surface-muted;
+  text-align: center;
+  margin-bottom: $space-3;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: $font-weight-bold;
+}
+
+.demoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-2;
+}
+
+.demoBtn {
+  @include button-base;
+  background: $surface-dim;
+  color: $on-surface;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+  height: 36px;
+  padding: $space-1 $space-2;
+
+  &:hover {
+    background: $primary-light;
+    border-color: rgba($primary, 0.3);
+    color: $primary-dark;
+  }
+}
+
+.passwordHint {
+  margin-top: $space-3;
+  font-size: 12px;
+  color: $on-surface-muted;
+  text-align: center;
+
+  code {
+    background: $surface-dim;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: $on-surface;
+    font-weight: $font-weight-semibold;
+  }
+}

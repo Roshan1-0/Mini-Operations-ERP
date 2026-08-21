@@ -1,0 +1,13 @@
+@use '../../styles/variables' as *;
+
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  background: $surface;
+}

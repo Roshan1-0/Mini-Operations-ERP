@@ -1,0 +1,126 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.sidebar {
+  width: $sidebar-width;
+  min-width: $sidebar-width;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.logo {
+  @include flex(row, flex-start, center, $space-3);
+  padding: $space-5 $space-4;
+  border-bottom: 1px solid $border;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $on-surface;
+  line-height: 1.2;
+}
+
+.logoRole {
+  font-size: $font-size-xs;
+  color: $on-surface-muted;
+}
+
+.nav {
+  flex: 1;
+  padding: $space-3 $space-2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.navItem {
+  @include flex(row, flex-start, center, $space-3);
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $on-surface-secondary;
+  transition: all 0.15s;
+  text-decoration: none;
+
+  &:hover {
+    background: $surface-hover;
+    color: $on-surface;
+  }
+
+  &.active {
+    background: $primary-light;
+    color: $primary;
+  }
+}
+
+.footer {
+  border-top: 1px solid $border;
+  padding: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.userInfo {
+  @include flex(row, flex-start, center, $space-3);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  background: $primary;
+  color: white;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  @include flex(row, center, center);
+  flex-shrink: 0;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.userName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $on-surface;
+  @include truncate;
+}
+
+.userRole {
+  font-size: $font-size-xs;
+  color: $on-surface-muted;
+}
+
+.logoutBtn {
+  @include button-base;
+  @include flex(row, flex-start, center, $space-2);
+  background: none;
+  border: 1px solid $border;
+  color: $on-surface-secondary;
+  font-size: $font-size-sm;
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  width: 100%;
+
+  &:hover {
+    background: $danger-bg;
+    color: $danger;
+    border-color: $danger-border;
+  }
+}

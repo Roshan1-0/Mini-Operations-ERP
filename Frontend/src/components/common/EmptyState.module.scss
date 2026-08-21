@@ -1,0 +1,25 @@
+@use '../../styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 32px;
+  gap: 8px;
+}
+
+.icon { font-size: 40px; }
+
+.title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $on-surface;
+}
+
+.description {
+  font-size: $font-size-md;
+  color: $on-surface-secondary;
+  text-align: center;
+  max-width: 360px;
+}

@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: $space-6;
+  gap: $space-4;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $on-surface;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: $font-size-md;
+  color: $on-surface-secondary;
+  margin-top: $space-1;
+}
+
+.action {
+  flex-shrink: 0;
+}
