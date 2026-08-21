@@ -1,0 +1,167 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.page {
+  padding: $space-8;
+  max-width: 1400px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+  margin-bottom: $space-6;
+
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
+}
+
+.filters {
+  @include flex(row, flex-start, center, $space-3);
+  flex-wrap: wrap;
+  margin-bottom: $space-4;
+  padding: $space-3 $space-4;
+  background: white;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+}
+
+.search, .select {
+  @include input-base;
+  height: 36px;
+  width: auto;
+}
+
+.search { min-width: 200px; }
+.select { min-width: 140px; }
+
+.checkLabel {
+  @include flex(row, flex-start, center, $space-2);
+  font-size: $font-size-sm;
+  color: $on-surface-secondary;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tableCard {
+  background: white;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  th {
+    background: $surface-dim;
+    padding: $space-3 $space-4;
+    text-align: left;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: $on-surface-secondary;
+    white-space: nowrap;
+    border-bottom: 1px solid $border;
+  }
+
+  td {
+    padding: $space-3 $space-4;
+    font-size: $font-size-md;
+    border-bottom: 1px solid $border;
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: $surface-hover; }
+}
+
+.itemName {
+  font-weight: $font-weight-medium;
+  color: $on-surface;
+}
+
+.sku {
+  font-size: $font-size-xs;
+  color: $on-surface-muted;
+}
+
+.available {
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  &.low { color: $danger; }
+}
+
+.primaryBtn {
+  @include button-base;
+  background: $primary;
+  color: white;
+  padding: $space-2 $space-4;
+  &:hover:not(:disabled) { background: $primary-dark; }
+}
+
+.cancelBtn {
+  @include button-base;
+  background: white;
+  color: $on-surface-secondary;
+  border: 1px solid $border;
+  padding: $space-2 $space-4;
+  &:hover { background: $surface-dim; }
+}
+
+.actionBtn {
+  @include button-base;
+  background: white;
+  border: 1px solid $border;
+  color: $on-surface-secondary;
+  font-size: $font-size-sm;
+  padding: $space-1 $space-3;
+  &:hover { background: $surface-dim; }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $on-surface;
+  }
+}
+
+.formInput, .formSelect {
+  @include input-base;
+  height: 40px;
+}
+
+.hint {
+  font-size: $font-size-xs;
+  color: $on-surface-muted;
+}
+
+.adjustInfo {
+  font-size: $font-size-md;
+  color: $on-surface-secondary;
+  background: $surface-dim;
+  padding: $space-3 $space-4;
+  border-radius: $radius-sm;
+}
+
+.formError {
+  background: $danger-bg;
+  border: 1px solid $danger-border;
+  color: $danger;
+  border-radius: $radius-sm;
+  padding: $space-3 $space-4;
+  font-size: $font-size-md;
+}
