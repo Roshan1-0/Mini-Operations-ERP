@@ -1,0 +1,89 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.page { padding: $space-8; max-width: 1400px; }
+
+.actionError {
+  background: $danger-bg; border: 1px solid $danger-border; color: $danger;
+  border-radius: $radius-md; padding: $space-3 $space-4; margin-bottom: $space-4;
+}
+
+.tableCard {
+  background: white; border: 1px solid $border; border-radius: $radius-lg; overflow: hidden;
+}
+
+.tableWrapper { overflow-x: auto; }
+
+.table {
+  th {
+    background: $surface-dim; padding: $space-3 $space-4; text-align: left;
+    font-size: $font-size-xs; font-weight: 600; letter-spacing: 0.05em;
+    color: $on-surface-secondary; border-bottom: 1px solid $border;
+  }
+  td {
+    padding: $space-3 $space-4; font-size: $font-size-md;
+    border-bottom: 1px solid $border; vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: $surface-hover; }
+}
+
+.ordNumber { font-weight: $font-weight-semibold; color: $primary; }
+
+.orderItem {
+  display: flex; gap: $space-3; align-items: center; flex-wrap: wrap;
+  font-size: $font-size-md;
+  &:not(:last-child) { margin-bottom: $space-1; }
+}
+
+.qty { color: $on-surface-secondary; font-size: $font-size-sm; }
+.reserved { color: $success; font-size: $font-size-sm; font-weight: $font-weight-medium; }
+
+.actions { @include flex(row, flex-start, center, $space-2); }
+
+.reserveBtn {
+  @include button-base;
+  background: $primary; color: white; font-size: $font-size-sm;
+  padding: $space-1 $space-3; height: 30px;
+  &:hover { background: $primary-dark; }
+}
+
+.cancelBtn2 {
+  @include button-base;
+  background: white; border: 1px solid $danger-border; color: $danger;
+  font-size: $font-size-sm; padding: $space-1 $space-3; height: 30px;
+  &:hover { background: $danger-bg; }
+}
+
+.primaryBtn {
+  @include button-base; background: $primary; color: white; padding: $space-2 $space-4;
+  &:hover:not(:disabled) { background: $primary-dark; }
+}
+
+.cancelBtn {
+  @include button-base; background: white; border: 1px solid $border;
+  color: $on-surface-secondary; padding: $space-2 $space-4;
+  &:hover { background: $surface-dim; }
+}
+
+.form { display: flex; flex-direction: column; gap: $space-4; }
+.field {
+  display: flex; flex-direction: column; gap: $space-2;
+  label { font-size: $font-size-sm; font-weight: $font-weight-medium; }
+}
+
+.itemsSection { display: flex; flex-direction: column; gap: $space-3; }
+.itemsLabel { font-size: $font-size-sm; font-weight: $font-weight-medium; color: $on-surface; }
+
+.itemRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px;
+  gap: $space-2;
+}
+
+.formInput, .formSelect, .qtyInput { @include input-base; height: 40px; }
+
+.formError {
+  background: $danger-bg; border: 1px solid $danger-border; color: $danger;
+  border-radius: $radius-sm; padding: $space-3 $space-4; font-size: $font-size-md;
+}
