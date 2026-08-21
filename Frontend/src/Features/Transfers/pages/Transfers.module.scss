@@ -1,0 +1,66 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.page { padding: $space-8; max-width: 1400px; }
+
+.actionError {
+  background: $danger-bg; border: 1px solid $danger-border; color: $danger;
+  border-radius: $radius-md; padding: $space-3 $space-4; margin-bottom: $space-4;
+  font-size: $font-size-md;
+}
+
+.tableCard {
+  background: white; border: 1px solid $border; border-radius: $radius-lg; overflow: hidden;
+}
+
+.tableWrapper { overflow-x: auto; }
+
+.table {
+  th {
+    background: $surface-dim; padding: $space-3 $space-4; text-align: left;
+    font-size: $font-size-xs; font-weight: 600; letter-spacing: 0.05em;
+    color: $on-surface-secondary; border-bottom: 1px solid $border; white-space: nowrap;
+  }
+  td {
+    padding: $space-3 $space-4; font-size: $font-size-md;
+    border-bottom: 1px solid $border; vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: $surface-hover; }
+}
+
+.trnNumber { font-weight: $font-weight-semibold; color: $primary; }
+
+.actionBtn {
+  @include button-base;
+  background: $primary; color: white;
+  font-size: $font-size-sm; padding: $space-1 $space-3; height: 30px;
+  &:hover { background: $primary-dark; }
+  &.receive { background: $success; &:hover { background: #059669; } }
+}
+
+.completedTag {
+  font-size: $font-size-sm; color: $success; font-weight: $font-weight-medium;
+}
+
+.primaryBtn {
+  @include button-base; background: $primary; color: white; padding: $space-2 $space-4;
+  &:hover:not(:disabled) { background: $primary-dark; }
+}
+
+.cancelBtn {
+  @include button-base; background: white; border: 1px solid $border;
+  color: $on-surface-secondary; padding: $space-2 $space-4;
+  &:hover { background: $surface-dim; }
+}
+
+.form { display: flex; flex-direction: column; gap: $space-4; }
+.field {
+  display: flex; flex-direction: column; gap: $space-2;
+  label { font-size: $font-size-sm; font-weight: $font-weight-medium; }
+}
+.formInput, .formSelect { @include input-base; height: 40px; }
+.formError {
+  background: $danger-bg; border: 1px solid $danger-border; color: $danger;
+  border-radius: $radius-sm; padding: $space-3 $space-4; font-size: $font-size-md;
+}
