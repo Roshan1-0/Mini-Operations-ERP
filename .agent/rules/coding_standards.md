@@ -1,39 +1,35 @@
-# Mini Operations ERP — Coding Standards
+# Mini Operations ERP — Coding Standards & Engineering Protocols
 
 ## Architecture
-- Routes: connect HTTP endpoints to middleware + controllers only
-- Controllers: read request → validate → call service → return response
-- Services: all business logic, DB queries, transaction boundaries
-- Models: Drizzle schema definitions only
-- Middleware: auth, role checks, validation, error handling
+- **Routes (`src/routes/`)**: Connect HTTP endpoints to middleware pipelines and controllers only.
+- **Controllers (`src/controllers/`)**: Read request → validate payload → call service → return structured response.
+- **Services (`src/services/`)**: Domain business logic, database queries, and transaction boundaries (`db.transaction`).
+- **Models (`src/models/`)**: Drizzle schema definitions and database constraints only.
+- **Middleware (`src/middlewares/`)**: Authentication, role authorization (RBAC), schema validation (Zod), centralized error handling.
 
-## Code Style
-- ES modules (import/export)
-- async/await only
-- Descriptive variable names
-- Short focused functions
-- Comments only for business behavior
-- No one-letter variables except trivial loops
+## Code Style & Conventions
+- ES modules (`import`/`export`) with `"type": "module"`.
+- `async`/`await` exclusively (no unhandled promises or callbacks).
+- Descriptive domain naming (`physicalQuantity`, `reservedQuantity`, `availableQuantity`).
+- Short, single-purpose functions.
+- Inline explanations reserved for non-obvious business behavior and SQL transaction guarantees.
 
-## API Responses
-Success: { success: true, message: '...', data: ... }
-Error: { success: false, message: '...' }
+## API Uniform Response Shape
+- **Success**: `{ "success": true, "message": "...", "data": ... }`
+- **Error**: `{ "success": false, "message": "..." }`
 
-## Critical Rules
-- NEVER trust frontend quantities for availability checks
-- ALWAYS use atomic DB updates for inventory mutations under concurrency
-- ALWAYS use transactions for multi-step business operations
-- NEVER put business logic in React components
-- NEVER put DB queries in controllers
-- NEVER enforce authorization only on frontend
+## Critical Engineering Invariants
+- **NEVER** trust frontend quantities or calculations for availability checks.
+- **ALWAYS** compute `availableQuantity` dynamically (`physical_quantity - reserved_quantity`).
+- **ALWAYS** use atomic database conditional updates (`UPDATE inventory ... WHERE physical - reserved >= qty`) under concurrency.
+- **ALWAYS** wrap multi-step operations (transfers, reservations, adjustments) in database transactions.
+- **NEVER** put database queries or domain calculations in Express controllers.
+- **NEVER** enforce authorization solely on the client UI layer.
 
-## DO NOT
-- Negative inventory (DB constraint + service check)
-- Trust frontend calculated available quantities
-- Allow status transitions out of order
-- Receive same transfer twice
-- Reserve above available inventory
-- Use floating point for stock quantities (integers only)
-- Create microservices, message queues, event buses
-- Add features not in the case study spec
-- Import axios directly in React components
+## Prohibited Patterns
+- Negative physical or reserved inventory balances.
+- Out-of-order state transitions across work orders or transfers.
+- Duplicate transfer receipt execution.
+- Over-allocation or over-reservation of warehouse stock.
+- Floating-point arithmetic for inventory item units (integers only).
+- Direct raw `axios` calls in React components (use domain API client wrappers).
